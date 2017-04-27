@@ -17,7 +17,7 @@ export class LocationService{
   addLocation(location: Location){
     const body = JSON.stringify(location);
     const headers = new Headers({'Content-Type':'application/json'});
-    return this.http.post('http://localhost:3000/location', body, {headers: headers})
+    return this.http.post('https://app-location.herokuapp.com/location', body, {headers: headers})
           .map((response: Response)=> {
             const result = response.json();
             const location = new Location(result.obj.name,result.obj.address,result.obj.phoneNumber,result.obj.workTime,result.obj.goods,'Tan Huynh',result.obj._id,null);
@@ -28,7 +28,7 @@ export class LocationService{
   }
 
   getLocation(){
-    return this.http.get('http://localhost:3000/location')
+    return this.http.get('https://app-location.herokuapp.com/location')
           .map((response: Response)=>{
             const locations = response.json().obj;
             let transformedLocations: Location[] = [];
@@ -50,14 +50,14 @@ export class LocationService{
   updateLocation(location: Location){
     const body = JSON.stringify(location);
     const headers = new Headers({'Content-Type':'application/json'});
-    return this.http.patch('http://localhost:3000/location/'+ location.locationId , body, {headers: headers})
+    return this.http.patch('https://app-location.herokuapp.com/location/'+ location.locationId , body, {headers: headers})
           .map((response: Response)=> response.json())
           .catch((error: Response)=> Observable.throw(error.json()));
   }
 
   deleteLocation(location:Location){
     this.locations.splice(this.locations.indexOf(location),1);
-    return this.http.delete('http://localhost:3000/location/'+ location.locationId)
+    return this.http.delete('https://app-location.herokuapp.com/location/'+ location.locationId)
           .map((response: Response)=> response.json())
           .catch((error: Response)=> Observable.throw(error.json()));
   }

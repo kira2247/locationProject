@@ -10,7 +10,7 @@ var appRoutes = require('./routes/app');
 var locationRoutes = require('./routes/locations');
 
 var app = express();
-mongoose.connect('localhost:27017/locationApp');
+mongoose.connect(process.env.MONGODB_URI || 'localhost:27017/locationApp');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
