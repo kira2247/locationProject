@@ -1,0 +1,18 @@
+<div class ="col-md-8 col-md-offset-2">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm" id="locationForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" class="form-control" [ngModel]="location?.name" name="name" required/>
+      <label for="adress">Address</label>
+      <input type="text" id="address" class="form-control" [ngModel]="location?.address" name="address" required/>
+      <label for="phoneNumber">Phone Number</label>
+      <input type="text" id="phoneNumber" class="form-control" [ngModel]="location?.phoneNumber" name="phoneNumber" required/>
+      <label for="workTime">Work Time</label>
+      <input type="text" id="workTime" class="form-control" [ngModel]="location?.workTime" name="workTime" required/>
+      <label for="goods">Goods</label>
+      <input type="text" id="goods" class="form-control" [ngModel]="location?.goods" name="goods" required/>
+    </div>
+    <button type="button" class="btn btn-danger" (click)="onClear(f)">Clear</button>
+    <button class="btn btn-primary" type=submit>Save</button>
+  </form>
+</div>
