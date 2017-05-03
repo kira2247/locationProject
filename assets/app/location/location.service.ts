@@ -69,7 +69,11 @@ export class LocationService{
   }
 
   deleteLocation(location:Location){
+    if(this.location){
+      this.router.navigateByUrl('/location');
+    }else{
     this.locations.splice(this.locations.indexOf(location),1);
+    }
     return this.http.delete('https://app-location.herokuapp.com/location/'+ location.locationId)
           .map((response: Response)=> response.json())
           .catch((error: Response)=> Observable.throw(error.json()));
