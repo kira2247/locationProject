@@ -71,6 +71,7 @@ export class LocationService{
   deleteLocation(location:Location){
     if(this.location){
       this.router.navigateByUrl('/location');
+      this.location = null;
     }else{
     this.locations.splice(this.locations.indexOf(location),1);
     }
