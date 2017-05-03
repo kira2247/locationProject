@@ -1,37 +1,19 @@
 <article class="panel panel-default">
   <div class="panel-body">
     <div class="row">
-      <div class="col-md-4">
-        <div class="locationName">
-          Name: {{location.name}}
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="locationAddress">
-          Address: {{location.address}}
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="locationWorkTime">
-          Work Time: {{location.workTime}}
-        </div>
+      <div class="locationName">
+          <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['details', location.locationId]">{{location.name}}</a>
       </div>
     </div>
-    <div class="phoneNumber">
-        <section>
-          Phone Number: {{location.phoneNumber}}
-        </section>
-    </div>
-    <div class="locationMenu">
-      <section>
-        <h4>Menu:</h4>
-        <ul>
-          <!-- <li ng-repeat="good in "> -->
-          <li>
-            {{location.goods}}
-          </li>
-        </ul>
-      </section>
+    <hr />
+    <div class="row">
+      <div class="locationComment">
+          <div class="placeholder">
+            <header>
+              Placeholder Comment
+            </header>
+          </div>
+      </div>
     </div>
   </div>
   <footer class="panel-footer">

@@ -20,6 +20,31 @@ router.get('/', (req,res,next)=>{
           });
 });
 
+//get detail location
+
+router.get('/details/:id', (req,res,next)=>{
+  Location.findById(req.params.id,(err,location)=>{
+    if (err) {
+        return res.status(500).json({
+            title: 'An error occurred',
+            error: err
+        });
+    }
+    if(!location){
+      return res.status(500).json({
+        title: 'No location found!',
+        error: {
+          message: 'Location not found'
+        }
+      });
+    }
+    res.status(200).json({
+      message: 'Get Location Successfully',
+      obj: location
+    });
+  });
+});
+
 //add new location
 router.post('/', (req,res,next)=>{
   var location = new Location({

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   </div>
   <hr>
   <div class="row">
-    <app-location-list></app-location-list>
+    <router-outlet></router-outlet>
   </div>
   `
 })

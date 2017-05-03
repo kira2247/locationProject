@@ -8,6 +8,7 @@ import { LocationComponent } from "./location/location.component";
 import { LocationListComponent} from "./location/location-list.component";
 import { LocationInputComponent } from "./location/location-input.component";
 import { LocationsComponent } from './location/locations.component';
+import { LocationDetailsComponent } from './location/location-details.component';
 import { AuthenticationComponent } from './auth/authentication.component';
 import { HeaderComponent } from './header.component';
 import { routing } from './app.routing';
@@ -22,6 +23,7 @@ import { SigninComponent } from './auth/signin.component';
       LocationListComponent,
       LocationInputComponent,
       LocationsComponent,
+      LocationDetailsComponent,
       AuthenticationComponent,
       HeaderComponent,
       LogoutComponent,

@@ -9,6 +9,7 @@ import {Location} from "./location.model";
 @Injectable()
 export class LocationService{
   private locations: Location[] = [];
+  private location: Location;
 
   locationIsEdit = new EventEmitter<Location>();
 
@@ -37,6 +38,18 @@ export class LocationService{
             }
             this.locations = transformedLocations;
             return transformedLocations;
+          })
+          .catch((error: Response)=> Observable.throw(error.json()));
+  }
+
+  getDetailsLocation(locationId){
+    return this.http.get('https://app-location.herokuapp.com/location/details/'+locationId)
+          .map((response: Response)=>{
+            const location = response.json().obj;
+            let transformLocation: Location;
+            transformLocation = new Location(location.name,location.address,location.phoneNumber,location.workTime,location.goods,'Tan Huynh',location._id, null);
+            this.location = transformLocation;
+            return transformLocation;
           })
           .catch((error: Response)=> Observable.throw(error.json()));
   }
